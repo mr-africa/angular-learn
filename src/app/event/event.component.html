@@ -1,0 +1,6 @@
+<div *ngIf="event.isNews()">
+    <app-news-event [news]="event"></app-news-event>
+</div>
+<div *ngIf="event.isTransaction()">
+    <app-transaction-event [transaction]="event"></app-transaction-event>
+</div>
