@@ -8,12 +8,16 @@ abstract class FeedEvent {
     constructor(date: string) {
         this.date = new Date(date);
     }
-    isNews() {
+    isNews(): boolean {
         return this.type === NEWS_EVENT_TYPE;
     }
 
-    isTransaction() {
+    isTransaction(): boolean {
         return this.type === TRANSACTION_EVENT_TYPE;
+    }
+
+    dateOutput(): string {
+        return this.date.toLocaleString();
     }
 }
 

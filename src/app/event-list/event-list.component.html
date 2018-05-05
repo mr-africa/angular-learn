@@ -1,5 +1,5 @@
-<ul>
-    <li *ngFor="let event of feed">
+<ul class="event-list">
+    <li class="event-list__item" *ngFor="let event of feed">
         <app-event [event]="event"></app-event>
     </li>
 </ul>

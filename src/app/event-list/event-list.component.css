@@ -1,0 +1,11 @@
+.event-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.event-list__item {
+    margin: 2em;
+    display: block;
+    padding: 1em;
+    border-bottom: 1px dotted #ccc;
+}
