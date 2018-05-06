@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import feed from './feed';
+import { EventList, feed } from './feed';
 import { feedEventType } from './consts';
 import { Observable, of } from 'rxjs';
 
@@ -7,53 +7,37 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class EventsService {
-    feed: feedEventType[];
-    sortByDate: boolean = true;
+    eventList: EventList
+
     news_show: boolean = true;
     transaction_show: boolean = true;
 
-
     constructor() {
-        this.sortFeed();
-    }
-
-    sortFeed(): void {
-        this.feed = feed.feed.sort((a: feedEventType, b: feedEventType) => {
-            if (a.date > b.date && this.sortByDate) {
-                return -1;
-            }
-            return 1;
-        });
+        this.eventList = feed;
+        this.eventList.sortFeedByDate();
     }
 
     oldEventsFirst(): void {
-        if (this.sortByDate) {
-            this.sortByDate = false;
-            this.sortFeed();
-        }
+        this.eventList.oldEventsFirst();
     }
 
     newEventsFirst(): void {
-        if (!this.sortByDate) {
-            this.sortByDate = true;
-            this.sortFeed();
-        }
+        this.eventList.newEventsFirst();
     }
 
     getFeed(): Observable<feedEventType[]> {
-        return of(this.feed);
+        return of(this.eventList.feed);
     }
 
     changeVisible(eventType: string, value: boolean): void {
-        this.feed = this.feed.map((event) => {
-            if (event.type === eventType) {
-                event.visible = value;
-            }
-            return event;
-        });
+        this.eventList.changeEventVisible(eventType, value);
     }
 
     getEvent(id: number): Observable<feedEventType> {
-        return of(this.feed.find(event => event.id === id));
+        return of(this.eventList.getEvent(id));
+    }
+
+    delete(id: number): void {
+        this.eventList.delete(id);
     }
 }
