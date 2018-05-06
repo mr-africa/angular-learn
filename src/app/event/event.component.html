@@ -5,4 +5,5 @@
     <div *ngIf="event.isTransaction()">
         <app-transaction-event [transaction]="event"></app-transaction-event>
     </div>
+    <a routerLink="/{{ event.id }}">подробнее</a>
 </div>

@@ -1,0 +1,7 @@
+<a routerLink="">back</a>
+<div *ngIf="event.isNews()">
+    <app-news-detail [news]="event"></app-news-detail>
+</div>
+<div *ngIf="event.isTransaction()">
+    <app-transaction-detail [transaction]="event"></app-transaction-detail>
+</div>

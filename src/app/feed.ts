@@ -1,4 +1,4 @@
-import { NEWS_EVENT_TYPE, TRANSACTION_EVENT_TYPE, EventFactory } from './consts';
+import { NEWS_EVENT_TYPE, TRANSACTION_EVENT_TYPE, EventFactory, feedEventType } from './consts';
 
 const RAW_FEED = [
     {
@@ -31,6 +31,19 @@ const RAW_FEED = [
     },
 ];
 
-let feed = RAW_FEED.map(x => EventFactory(x));
+class EventList {
+    feed: feedEventType[];
+    idCounter = 1;
 
-export default feed;
+    constructor(raw_feed) {
+        this.feed = raw_feed.map((x, index) => EventFactory(x, this.getNextIndex()));
+    }
+
+    getNextIndex(): number {
+        return this.idCounter++;
+    }
+}
+
+
+
+export default new EventList(RAW_FEED);

@@ -13,10 +13,12 @@ export class EventsService {
     transaction_show: boolean = true;
 
 
-    constructor() { }
+    constructor() {
+        this.sortFeed();
+    }
 
     sortFeed(): void {
-        this.feed = feed.sort((a: feedEventType, b: feedEventType) => {
+        this.feed = feed.feed.sort((a: feedEventType, b: feedEventType) => {
             if (a.date > b.date && this.sortByDate) {
                 return -1;
             }
@@ -39,7 +41,6 @@ export class EventsService {
     }
 
     getFeed(): Observable<feedEventType[]> {
-        this.sortFeed();
         return of(this.feed);
     }
 
@@ -50,5 +51,9 @@ export class EventsService {
             }
             return event;
         });
+    }
+
+    getEvent(id: number): Observable<feedEventType> {
+        return of(this.feed.find(event => event.id === id));
     }
 }

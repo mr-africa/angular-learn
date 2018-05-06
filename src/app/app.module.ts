@@ -15,6 +15,9 @@ import { TransactionDetailComponent } from './transaction-detail/transaction-det
 import { AddEventComponent } from './add-event/add-event.component';
 import { AddNewsComponent } from './add-news/add-news.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { MainPageComponent } from './main-page/main-page.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,14 @@ import { AddTransactionComponent } from './add-transaction/add-transaction.compo
     TransactionDetailComponent,
     AddEventComponent,
     AddNewsComponent,
-    AddTransactionComponent
+    AddTransactionComponent,
+    MainPageComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

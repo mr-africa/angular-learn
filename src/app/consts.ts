@@ -5,9 +5,11 @@ abstract class FeedEvent {
     date: Date;
     type: string;
     visible: boolean = true;
+    id: number;
 
-    constructor(date: string) {
+    constructor(date: string, id: number) {
         this.date = new Date(date);
+        this.id = id;
     }
     isNews(): boolean {
         return this.type === NEWS_EVENT_TYPE;
@@ -28,8 +30,8 @@ class NewsEvent extends FeedEvent {
     isViewed: boolean = false;
     readonly type: string = NEWS_EVENT_TYPE;
 
-    constructor(event) {
-        super(event.date);
+    constructor(event, id: number) {
+        super(event.date, id);
         this.title = event.title;
         this.description = event.description;
     }
@@ -43,8 +45,8 @@ class TransactionEvent extends FeedEvent {
     description?: string;
     readonly type: string = TRANSACTION_EVENT_TYPE;
 
-    constructor(event) {
-        super(event.date);
+    constructor(event, id: number) {
+        super(event.date, id);
         this.amount = event.amount;
         this.currency = event.currency;
         this.sender = event.sender;
@@ -55,11 +57,11 @@ class TransactionEvent extends FeedEvent {
 
 type feedEventType = (NewsEvent|TransactionEvent);
 
-function EventFactory<feedEventType>(event) {
+function EventFactory<feedEventType>(event, id: number) {
     if (event.type === NEWS_EVENT_TYPE) {
-        return new NewsEvent(event);
+        return new NewsEvent(event, id);
     } else if (event.type === TRANSACTION_EVENT_TYPE) {
-        return new TransactionEvent(event);
+        return new TransactionEvent(event, id);
     }
 }
 

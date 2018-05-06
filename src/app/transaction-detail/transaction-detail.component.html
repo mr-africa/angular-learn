@@ -1,3 +1,9 @@
-<p>
-  transaction-detail works!
-</p>
+<div>
+    {{ transaction.dateOutput() }}
+    {{ transaction.amount }}
+    {{ transaction.currency }}
+    {{ transaction.sender }}
+    {{ transaction.is_positive }}
+    {{ transaction.description }}
+    <button>delete</button>
+</div>
