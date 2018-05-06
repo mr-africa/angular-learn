@@ -1,3 +1,28 @@
 <a routerLink="">back</a>
 
-<button>Добавить транзакцию</button>
+<form [formGroup]="AddTransactionForm" #formDir="ngForm">
+
+    <div [hidden]="formDir.submitted">
+        <div class="form-group">
+            <label for="amount">Сумма</label>
+            <input id="amount" class="form-control" formControlName="amount" required >
+        </div>
+
+        <label for="currency">Валюта</label>
+        <select id="currency" class="form-control" formControlName="currency" required >
+            <option *ngFor="let item of curencyList | keys" [value]="item.key">{{ item.value }}</option>
+        </select>
+
+        <div class="form-group">
+            <label for="sender">Отправитель</label>
+            <input id="sender" class="form-control" formControlName="sender" required >
+        </div>
+
+        <div class="form-group">
+            <label for="news-description">Описание</label>
+            <textarea id="news-description" rows="8" cols="40" required formControlName="description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">Submit</button>
+    </div>
+</form>

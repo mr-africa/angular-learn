@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { EventList, feed } from './feed';
-import { feedEventType } from './consts';
+import { feedEventType, eventTypes } from './consts';
 import { Observable, of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,12 @@ export class EventsService {
 
     delete(id: number): void {
         this.eventList.delete(id);
+    }
+    addNews(news: object): void {
+        this.eventList.addEvent(news, eventTypes.NEWS);
+    }
+
+    addTransaction(transaction: object): void {
+        this.eventList.addEvent(transaction, eventTypes.TRANSACTION);
     }
 }

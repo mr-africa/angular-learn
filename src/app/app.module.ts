@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { EventListComponent } from './event-list/event-list.component';
@@ -18,6 +18,7 @@ import { AddTransactionComponent } from './add-transaction/add-transaction.compo
 import { AppRoutingModule } from './/app-routing.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { KeysPipe } from './keys.pipe';
 
 @NgModule({
   declarations: [
@@ -35,12 +36,14 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
     AddNewsComponent,
     AddTransactionComponent,
     MainPageComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

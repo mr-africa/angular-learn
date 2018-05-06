@@ -1,5 +1,6 @@
-const NEWS_EVENT_TYPE = 'news';
-const TRANSACTION_EVENT_TYPE = 'transaction'; // TODO enum
+enum eventTypes {NEWS = 'news', TRANSACTION = 'transaction'};
+
+const currencyList = {USD: 'USD', RUR: 'RUR', EUR: 'EUR'};
 
 abstract class FeedEvent {
     date: Date;
@@ -7,16 +8,20 @@ abstract class FeedEvent {
     visible: boolean = true;
     id: number;
 
-    constructor(date: string, id: number) {
-        this.date = new Date(date);
+    constructor(date: (string|undefined), id: number) {
+        if (date) {
+            this.date = new Date(date);
+        } else {
+            this.date = new Date();
+        }
         this.id = id;
     }
     isNews(): boolean {
-        return this.type === NEWS_EVENT_TYPE;
+        return this.type === eventTypes.NEWS;
     }
 
     isTransaction(): boolean {
-        return this.type === TRANSACTION_EVENT_TYPE;
+        return this.type === eventTypes.TRANSACTION;
     }
 
     dateOutput(): string {
@@ -28,7 +33,7 @@ class NewsEvent extends FeedEvent {
     title: string;
     description: string;
     isViewed: boolean = false;
-    readonly type: string = NEWS_EVENT_TYPE;
+    readonly type: string = eventTypes.NEWS;
 
     constructor(event, id: number) {
         super(event.date, id);
@@ -39,11 +44,11 @@ class NewsEvent extends FeedEvent {
 
 class TransactionEvent extends FeedEvent {
     _amount: number;
-    currency: string; // TODO ENUM
+    currency: string;
     sender: string;
     is_positive?: boolean;
     description?: string;
-    readonly type: string = TRANSACTION_EVENT_TYPE;
+    readonly type: string = eventTypes.TRANSACTION;
 
     constructor(event, id: number) {
         super(event.date, id);
@@ -61,12 +66,4 @@ class TransactionEvent extends FeedEvent {
 
 type feedEventType = (NewsEvent|TransactionEvent);
 
-function EventFactory<feedEventType>(event, id: number) {
-    if (event.type === NEWS_EVENT_TYPE) {
-        return new NewsEvent(event, id);
-    } else if (event.type === TRANSACTION_EVENT_TYPE) {
-        return new TransactionEvent(event, id);
-    }
-}
-
-export { NEWS_EVENT_TYPE, TRANSACTION_EVENT_TYPE, EventFactory, feedEventType };
+export { eventTypes, currencyList, NewsEvent, TransactionEvent, feedEventType };

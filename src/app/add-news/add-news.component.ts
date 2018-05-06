@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { EventsService } from '../events.service';
 
 @Component({
@@ -9,6 +11,7 @@ import { EventsService } from '../events.service';
   styleUrls: ['./add-news.component.css']
 })
 export class AddNewsComponent implements OnInit {
+    newsAddForm: FormGroup;
 
     constructor(
         private route: ActivatedRoute,
@@ -18,6 +21,20 @@ export class AddNewsComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.newsAddForm = new FormGroup({
+            title: new FormControl(null, [
+                Validators.required,
+            ]),
+            description: new FormControl(null, [
+                Validators.required,
+            ]),
+        });
+    }
+
+    onSubmit() {
+        let news = Object.assign({}, this.newsAddForm.value);
+        this.eventService.addNews(news);
+        this.router.navigate(['']);
     }
 
 }

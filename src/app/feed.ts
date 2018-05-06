@@ -1,40 +1,48 @@
-import { NEWS_EVENT_TYPE, TRANSACTION_EVENT_TYPE, EventFactory, feedEventType } from './consts';
+import { eventTypes, NewsEvent, TransactionEvent, feedEventType, currencyList } from './consts';
 
 const RAW_FEED = [
     {
         date: '2018-01-13 10:20',
         title: 'kek news 1',
         description: 'ololol',
-        type: NEWS_EVENT_TYPE
+        type: eventTypes.NEWS
     },
     {
         date: '2018-01-14 10:20',
         title: 'kek news 2',
         description: 'ololol',
-        type: NEWS_EVENT_TYPE
+        type: eventTypes.NEWS
     },
     {
         date: '2018-01-14 10:20',
         amount: 10000,
-        currency: 'RUR',
+        currency: currencyList.RUR,
         sender: 'keko sender',
-        type: TRANSACTION_EVENT_TYPE
+        type: eventTypes.TRANSACTION
     },
     {
         date: '2018-01-10 10:20',
         amount: 10000,
-        currency: 'RUR',
+        currency: currencyList.USD,
         sender: 'keko sender',
-        type: TRANSACTION_EVENT_TYPE,
+        type: eventTypes.TRANSACTION,
         is_positive: false,
         description: 'kek'
     },
 ];
 
+function EventFactory<feedEventType>(event, id: number) {
+    if (event.type === eventTypes.NEWS) {
+        return new NewsEvent(event, id);
+    } else if (event.type === eventTypes.TRANSACTION) {
+        return new TransactionEvent(event, id);
+    }
+}
+
 class EventList {
     private _feed: feedEventType[];
     private _sortByDate: boolean = true;
-    idCounter = 1;
+    private idCounter = 1;
 
     constructor(raw_feed) {
         this._feed = raw_feed.map((x, index) => EventFactory(x, this.getNextIndex()));
@@ -85,6 +93,16 @@ class EventList {
                 event.visible = value;
             }
         });
+    }
+
+    addEvent(event, eventType:eventTypes): void {
+        let newEvent;
+        if (eventType === eventTypes.NEWS) {
+            newEvent = new NewsEvent(event, this.getNextIndex());
+        } else if (eventType === eventTypes.TRANSACTION) {
+            newEvent = new TransactionEvent(event, this.getNextIndex());
+        }
+        this._feed.splice(0, 0, newEvent);
     }
 }
 
