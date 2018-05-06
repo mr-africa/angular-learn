@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../events.service';
 
 @Component({
   selector: 'app-filter-by-date',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterByDateComponent implements OnInit {
 
-  constructor() { }
+    constructor(public eventService: EventsService) { }
 
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+    }
 }

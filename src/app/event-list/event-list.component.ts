@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import feed from '../feed';
 import { feedEventType } from '../consts';
+import { EventsService } from '../events.service';
 
 @Component({
   selector:  'app-event-list',
@@ -10,19 +10,14 @@ import { feedEventType } from '../consts';
 export class EventListComponent implements OnInit {
     feed: feedEventType[];
 
-    constructor() { }
+    constructor(private eventService: EventsService) { }
 
-    sortedFeed() {
-        return feed.sort((a: feedEventType, b: feedEventType) => {
-            if (a.date > b.date) {
-                return -1;
-            }
-            return 1;
-        });
+    getFeed(): void {
+        this.eventService.getFeed().subscribe(feed => this.feed = feed);
     }
 
     ngOnInit() {
-        this.feed = this.sortedFeed();
+        this.getFeed();
     }
 
 }
