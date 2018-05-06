@@ -38,7 +38,7 @@ class NewsEvent extends FeedEvent {
 }
 
 class TransactionEvent extends FeedEvent {
-    amount: number;
+    _amount: number;
     currency: string; // TODO ENUM
     sender: string;
     is_positive?: boolean;
@@ -47,11 +47,15 @@ class TransactionEvent extends FeedEvent {
 
     constructor(event, id: number) {
         super(event.date, id);
-        this.amount = event.amount;
+        this._amount = event.amount;
         this.currency = event.currency;
         this.sender = event.sender;
         this.is_positive = event.is_positive;
         this.description = event.description;
+    }
+
+    get amount(): string { // Храним значения в копейках/центах/итп чтоб не возникло возможных проблем с float числами
+        return (this._amount / 100).toFixed(2);
     }
 }
 

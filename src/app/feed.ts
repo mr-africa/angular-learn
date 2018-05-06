@@ -15,14 +15,14 @@ const RAW_FEED = [
     },
     {
         date: '2018-01-14 10:20',
-        amount: 100,
+        amount: 10000,
         currency: 'RUR',
         sender: 'keko sender',
         type: TRANSACTION_EVENT_TYPE
     },
     {
         date: '2018-01-10 10:20',
-        amount: 100,
+        amount: 10000,
         currency: 'RUR',
         sender: 'keko sender',
         type: TRANSACTION_EVENT_TYPE,
