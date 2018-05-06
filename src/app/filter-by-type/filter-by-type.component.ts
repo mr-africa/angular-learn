@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../events.service';
 
 @Component({
   selector: 'app-filter-by-type',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterByTypeComponent implements OnInit {
 
-  constructor() { }
+    constructor(public eventService: EventsService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

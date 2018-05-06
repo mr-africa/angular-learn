@@ -7,8 +7,11 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class EventsService {
-    sortByDate: boolean = true;
     feed: feedEventType[];
+    sortByDate: boolean = true;
+    news_show: boolean = true;
+    transaction_show: boolean = true;
+
 
     constructor() { }
 
@@ -38,5 +41,14 @@ export class EventsService {
     getFeed(): Observable<feedEventType[]> {
         this.sortFeed();
         return of(this.feed);
+    }
+
+    changeVisible(eventType: string, value: boolean): void {
+        this.feed = this.feed.map((event) => {
+            if (event.type === eventType) {
+                event.visible = value;
+            }
+            return event;
+        });
     }
 }

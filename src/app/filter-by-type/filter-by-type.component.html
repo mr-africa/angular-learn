@@ -1,3 +1,6 @@
-<button>Все</button>
-<button>Новости</button>
-<button>Транзакции</button>
+<div>
+    <input [(ngModel)]="eventService.news_show" (change)="eventService.changeVisible('news', eventService.news_show)" id="show_news_checkbox" type="checkbox" >
+    <label for="show_news_checkbox">Новости</label>
+    <input [(ngModel)]="eventService.transaction_show" (change)="eventService.changeVisible('transaction', eventService.transaction_show)"  id="show_transactions_checkbox" type="checkbox">
+    <label for="show_transactions_checkbox">Транзакции</label>
+</div>

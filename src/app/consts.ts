@@ -1,9 +1,10 @@
 const NEWS_EVENT_TYPE = 'news';
-const TRANSACTION_EVENT_TYPE = 'transaction';
+const TRANSACTION_EVENT_TYPE = 'transaction'; // TODO enum
 
 abstract class FeedEvent {
     date: Date;
     type: string;
+    visible: boolean = true;
 
     constructor(date: string) {
         this.date = new Date(date);
