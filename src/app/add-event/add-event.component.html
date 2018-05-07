@@ -1,2 +1,13 @@
-<a routerLink="/add-news">Добавить новость</a>
-<a routerLink="/add-transaction">Добавить транзакцию</a>
+<div class="add-event">
+    <div *ngIf="showButtons; else elseBlock">
+        <app-add-news-button></app-add-news-button>
+        <app-add-negative-transaction-button></app-add-negative-transaction-button>
+        <app-add-positive-transaction-button></app-add-positive-transaction-button>
+    </div>
+    <ng-template #elseBlock>
+        <button class="add-event-button circle-button" (click)="showActions()">
+            <div class="circle-button__image">+</div>
+        </button>
+    </ng-template>
+</div>
+<div *ngIf="showButtons" class="opacity" (click)="hideActions()"></div>
