@@ -1,0 +1,22 @@
+.transaction-date, .transaction-info__label {
+    color: #a3a1a1;
+}
+
+.transaction-description {
+    margin: 1em 0;
+    line-height: 2em;
+    text-align: justify;
+}
+
+.transaction-info {
+    margin-top: 1em;
+    font-size: 1.2em;
+    line-height: 2em;
+}
+
+.delete-transaction-button {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    padding: 0;
+}

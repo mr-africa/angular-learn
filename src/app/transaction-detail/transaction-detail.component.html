@@ -1,9 +1,9 @@
-<div>
-    {{ transaction.dateOutput() }}
-    {{ transaction.amount }}
-    {{ transaction.currency }}
-    {{ transaction.sender }}
-    {{ transaction.is_positive }}
-    {{ transaction.description }}
-    <button (click)="delete()">delete</button>
+<h1 [ngClass]="{'transaction-amount_positive': transaction.is_positive, 'transaction-amount_negative': !transaction.is_positive}">{{ transaction.positiveSymbol() }} {{ transaction.amount }}</h1>
+<div class="transaction-date">{{ transaction.dateOutput() }}</div>
+<div class="transaction-info">
+    <div><span class="transaction-info__label">{{ transaction.senderLabel() }}: </span>{{ transaction.sender }}</div>
+    <div>{{ transaction.description }}</div>
 </div>
+<button class="delete-transaction-button circle-button" (click)="delete()">
+    <div class="circle-button__image">-</div>
+</button>

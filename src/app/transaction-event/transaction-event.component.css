@@ -5,11 +5,6 @@
 .transaction-event__amount {
     font-weight: 700;
     margin-bottom: 1em;
-    color: #4f953b;
-}
-
-.transaction-event__amount_negative {
-    color: #a6172d;
 }
 
 .transaction-event-info {

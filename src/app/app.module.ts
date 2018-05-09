@@ -42,7 +42,7 @@ import { LinkButtonComponent } from './link-button/link-button.component';
     EventDetailComponent,
     KeysPipe,
     InnerPageHeaderComponent,
-    LinkButtonComponent
+    LinkButtonComponent,
   ],
   imports: [
     BrowserModule,

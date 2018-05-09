@@ -81,6 +81,13 @@ class TransactionEvent extends FeedEvent {
         }
         return '-';
     }
+
+    senderLabel() {
+        if (this.is_positive) {
+            return 'Отправитель';
+        }
+        return 'Получатель';
+    }
 }
 
 type feedEventType = (NewsEvent|TransactionEvent);

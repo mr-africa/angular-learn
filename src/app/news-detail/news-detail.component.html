@@ -1,6 +1,7 @@
-<div>
-    {{ news.dateOutput() }}
-    {{ news.title }}
+<h1>{{ news.title }}</h1>
+
+<div class="news-date">{{ news.dateOutput() }}</div>
+<article class="news-description">
     {{ news.description }}
-    <button>Отметить как прочтенную</button>
-</div>
+</article>
+<button>Отметить как прочтенную</button>
