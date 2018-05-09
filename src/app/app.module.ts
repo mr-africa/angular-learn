@@ -20,10 +20,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { KeysPipe } from './keys.pipe';
-import { AddNewsButtonComponent } from './add-news-button/add-news-button.component';
-import { AddPositiveTransactionButtonComponent } from './add-positive-transaction-button/add-positive-transaction-button.component';
-import { AddNegativeTransactionButtonComponent } from './add-negative-transaction-button/add-negative-transaction-button.component';
 import { InnerPageHeaderComponent } from './inner-page-header/inner-page-header.component';
+import { LinkButtonComponent } from './link-button/link-button.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +41,8 @@ import { InnerPageHeaderComponent } from './inner-page-header/inner-page-header.
     MainPageComponent,
     EventDetailComponent,
     KeysPipe,
-    AddNewsButtonComponent,
-    AddPositiveTransactionButtonComponent,
-    AddNegativeTransactionButtonComponent,
-    InnerPageHeaderComponent
+    InnerPageHeaderComponent,
+    LinkButtonComponent
   ],
   imports: [
     BrowserModule,
