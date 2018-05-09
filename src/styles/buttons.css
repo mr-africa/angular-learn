@@ -19,11 +19,11 @@
 .circle-button__image {
     font-size: 3em;
     user-select: none;
-    color: #efdc05;
+    color: hsl(55, 96%, 48%);
 }
 
 .circle-button-container__label {
-    color: #000; /*30a9de efdc05*/
+    color: #000;
     margin-right: 1em;
     border: 1px dotted #ccc;
     background: #fff;

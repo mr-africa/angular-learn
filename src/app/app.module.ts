@@ -23,6 +23,7 @@ import { KeysPipe } from './keys.pipe';
 import { AddNewsButtonComponent } from './add-news-button/add-news-button.component';
 import { AddPositiveTransactionButtonComponent } from './add-positive-transaction-button/add-positive-transaction-button.component';
 import { AddNegativeTransactionButtonComponent } from './add-negative-transaction-button/add-negative-transaction-button.component';
+import { InnerPageHeaderComponent } from './inner-page-header/inner-page-header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AddNegativeTransactionButtonComponent } from './add-negative-transactio
     KeysPipe,
     AddNewsButtonComponent,
     AddPositiveTransactionButtonComponent,
-    AddNegativeTransactionButtonComponent
+    AddNegativeTransactionButtonComponent,
+    InnerPageHeaderComponent
   ],
   imports: [
     BrowserModule,
