@@ -8,7 +8,7 @@ import { EventsService } from '../events.service';
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
-  styleUrls: ['./add-news.component.css']
+  styleUrls: ['./add-news.component.css', '../../styles/buttons.css', '../../styles/forms.css']
 })
 export class AddNewsComponent implements OnInit {
     newsAddForm: FormGroup;

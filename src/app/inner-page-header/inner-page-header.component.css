@@ -1,5 +1,5 @@
 .back-button {
-    display: block;
+    display: inline-block;
     width: 4em;
 }
 
@@ -14,4 +14,11 @@
 
 .back-button > .back-button__button:hover {
     border-color: hsl(55, 96%, 60%);
+}
+
+.header__label {
+    display: inline-block;
+    color: hsl(55, 96%, 60%);
+    font-size: 1.5em;
+    font-weight: 700;
 }

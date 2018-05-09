@@ -13,10 +13,3 @@
     font-size: 1.2em;
     line-height: 2em;
 }
-
-.delete-transaction-button {
-    position: fixed;
-    bottom: 2em;
-    right: 2em;
-    padding: 0;
-}

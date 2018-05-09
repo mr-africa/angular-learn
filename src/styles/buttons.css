@@ -38,3 +38,11 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+
+.circle-button_tag-button {
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    padding: 0;
+}
