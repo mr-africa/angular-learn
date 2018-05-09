@@ -1,28 +1,31 @@
 <app-inner-page-header></app-inner-page-header>
 
-<form [formGroup]="AddTransactionForm" #formDir="ngForm" class="add-news-page">
+<form [formGroup]="AddTransactionForm" #formDir="ngForm" class="form">
 
     <div [hidden]="formDir.submitted">
-        <div>
-            <label for="amount">Сумма</label>
+        <div class="form__item">
+            <label for="amount"  class="form__label">Сумма</label>
             <input id="amount"formControlName="amount" required >
         </div>
 
-        <label for="currency">Валюта</label>
-        <select id="currency" formControlName="currency" required >
-            <option *ngFor="let item of curencyList | keys" [value]="item.key">{{ item.value }}</option>
-        </select>
+        <div class="form__item">
+            <label for="currency"  class="form__label">Валюта</label>
+            <select id="currency" formControlName="currency" required >
+                <option *ngFor="let item of curencyList | keys" [value]="item.key">{{ item.value }}</option>
+            </select>
+        </div>
 
-        <div>
-            <label for="sender">Отправитель</label>
+        <div class="form__item">
+            <label for="sender"  class="form__label">Отправитель</label>
             <input id="sender" formControlName="sender" required >
         </div>
 
-        <div>
-            <label for="news-description">Описание</label>
+        <div class="form__item">
+            <label for="news-description"  class="form__label">Описание</label>
             <textarea id="news-description" rows="8" cols="40" required formControlName="description"></textarea>
         </div>
-
-        <button type="submit" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">Submit</button>
+        <button *ngIf="AddTransactionForm.valid" class="circle-button_tag-button circle-button" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">
+            <div class="circle-button__image">+</div>
+        </button>
     </div>
 </form>

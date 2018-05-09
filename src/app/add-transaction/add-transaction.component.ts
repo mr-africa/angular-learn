@@ -8,7 +8,7 @@ import { currencyList } from '../consts';
 @Component({
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
-  styleUrls: ['./add-transaction.component.css']
+  styleUrls: ['./add-transaction.component.css', '../../styles/buttons.css', '../../styles/forms.css']
 })
 export class AddTransactionComponent implements OnInit {
     AddTransactionForm: FormGroup;
@@ -26,6 +26,7 @@ export class AddTransactionComponent implements OnInit {
         this.AddTransactionForm = new FormGroup({
             amount: new FormControl(null, [
                 Validators.required,
+                // Validators.
             ]),
             currency: new FormControl(null, [
                 Validators.required,

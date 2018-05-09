@@ -6,14 +6,14 @@
 
         <div class="form__item">
             <label for="title" class="form__label">Заголовок:</label>
-            <input id="title" class="form-control" formControlName="title" required >
+            <input id="title" formControlName="title" required >
         </div>
 
         <div class="form__item">
             <label for="news-description" class="form__label">Описание:</label>
             <textarea id="news-description" rows="8" cols="40" required formControlName="description"></textarea>
         </div>
-        <button class="circle-button_tag-button circle-button" [disabled]="newsAddForm.invalid" (click)="onSubmit()">
+        <button  *ngIf="newsAddForm.valid" class="circle-button_tag-button circle-button" (click)="onSubmit()">
             <div class="circle-button__image">+</div>
         </button>
     </div>
