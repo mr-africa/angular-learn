@@ -14,6 +14,9 @@ export class AddTransactionComponent implements OnInit {
     AddTransactionForm: FormGroup;
     objectKeys = Object.keys;
     curencyList = currencyList;
+    is_positive:boolean;
+    title:string;
+    symbol:string;
 
     constructor(
         private route: ActivatedRoute,
@@ -28,6 +31,10 @@ export class AddTransactionComponent implements OnInit {
                 Validators.required,
                 // Validators.
             ]),
+            amountDecimal: new FormControl(null, [
+                Validators.required,
+                // Validators.
+            ]),
             currency: new FormControl(null, [
                 Validators.required,
             ]),
@@ -37,11 +44,27 @@ export class AddTransactionComponent implements OnInit {
             is_positive: new FormControl(null, []),
             description: new FormControl(null, []),
         });
+        this.getStatus();
     }
     onSubmit() {
-        let transaction = Object.assign({}, this.AddTransactionForm.value);
+        const transaction = Object.assign({}, this.AddTransactionForm.value);
+        transaction.is_positive = this.is_positive;
         this.eventService.addTransaction(transaction);
         this.router.navigate(['']);
+    }
+
+    getStatus(): void {
+        const transactionType = this.route.snapshot.paramMap.get('type');
+        if (transactionType === 'positive') {
+            this.is_positive = true;
+            this.title = 'Добавить приход'
+        } else if (transactionType === 'negative') {
+            this.is_positive = false;
+            this.title = 'Добавить расход'
+            this.symbol = '-';
+        } else {
+            this.router.navigate(['']);
+        }
     }
 
 }

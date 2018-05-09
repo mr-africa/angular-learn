@@ -1,8 +1,8 @@
 <div class="add-event">
     <div *ngIf="showButtons; else elseBlock">
         <app-link-button label="Новость" link="/add-news" symbol="Н"></app-link-button>
-        <app-link-button label="Расход" link="/add-transaction" symbol="-"></app-link-button>
-        <app-link-button label="Приход" link="/add-transaction" symbol="+"></app-link-button>
+        <app-link-button label="Расход" link="/add-transaction/negative" symbol="-"></app-link-button>
+        <app-link-button label="Приход" link="/add-transaction/positive" symbol="+"></app-link-button>
     </div>
     <ng-template #elseBlock>
         <button class="add-event-button circle-button" (click)="showActions()">

@@ -1,11 +1,16 @@
-<app-inner-page-header></app-inner-page-header>
+<app-inner-page-header [header]="title"></app-inner-page-header>
 
 <form [formGroup]="AddTransactionForm" #formDir="ngForm" class="form">
 
     <div [hidden]="formDir.submitted">
         <div class="form__item">
             <label for="amount"  class="form__label">Сумма</label>
-            <input id="amount"formControlName="amount" required >
+            <div>
+                {{ symbol }}
+                <input id="amount"formControlName="amount" required >
+                &nbsp;.&nbsp;
+                <input id="amountDecimal"formControlName="amount" required >
+            </div>
         </div>
 
         <div class="form__item">
@@ -17,12 +22,12 @@
 
         <div class="form__item">
             <label for="sender"  class="form__label">Отправитель</label>
-            <input id="sender" formControlName="sender" required >
+            <input id="sender" formControlName="sender">
         </div>
 
         <div class="form__item">
             <label for="news-description"  class="form__label">Описание</label>
-            <textarea id="news-description" rows="8" cols="40" required formControlName="description"></textarea>
+            <textarea id="news-description" rows="8" cols="40" formControlName="description"></textarea>
         </div>
         <button *ngIf="AddTransactionForm.valid" class="circle-button_tag-button circle-button" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">
             <div class="circle-button__image">+</div>

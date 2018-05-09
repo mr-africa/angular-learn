@@ -9,8 +9,8 @@ import { AddTransactionComponent } from './add-transaction/add-transaction.compo
 const routes: Routes = [
     { path: '', component: MainPageComponent },
     { path: 'add-news', component: AddNewsComponent },
-    { path: 'add-transaction', component: AddTransactionComponent },
-    { path: ':id', component: EventDetailComponent },
+    { path: 'add-transaction/:type', component: AddTransactionComponent },
+    { path: 'event/:id', component: EventDetailComponent },
 ];
 
 @NgModule({
