@@ -1,0 +1,22 @@
+.news {
+
+}
+
+.news:hover > .news__title {
+    text-decoration: underline;
+}
+
+.news__title {
+    font-weight: 700;
+    margin-bottom: 1em;
+    color: #333030;
+}
+
+.news__date {
+    color: #a3a1a1;
+}
+
+.news-info {
+    display: flex;
+    justify-content: space-between;
+}

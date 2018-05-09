@@ -2,6 +2,10 @@ enum eventTypes {NEWS = 'news', TRANSACTION = 'transaction'};
 
 const currencyList = {USD: 'USD', RUR: 'RUR', EUR: 'EUR'};
 
+const dateFormat = new Intl.DateTimeFormat('ru-RU', {
+  year: 'numeric', month: 'numeric', day: 'numeric',
+  hour: 'numeric', minute: 'numeric'});
+
 abstract class FeedEvent {
     date: Date;
     type: string;
@@ -25,7 +29,7 @@ abstract class FeedEvent {
     }
 
     dateOutput(): string {
-        return this.date.toLocaleString();
+        return dateFormat.format(this.date);
     }
 }
 
