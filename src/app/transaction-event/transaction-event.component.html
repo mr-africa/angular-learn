@@ -1,6 +1,7 @@
-<div>
-    <div>{{ transaction.amount }}</div>
-    <div>{{ transaction.currency }}</div>
-    <div>{{ transaction.sender }}</div>
-    <div>{{ transaction.is_positive }}</div>
+<div class="transaction-event">
+    <div [ngClass]="{'transaction-event__amount': true, 'transaction-event__amount_negative': !transaction.is_positive}">{{ transaction.positiveSymbol() }} {{ transaction.amount }}</div>
+    <div class="transaction-event-info">
+        <div class="transaction-event-info__date">{{ transaction.dateOutput() }}</div>
+        <div class="transaction-event-info__sender">{{ transaction.sender }}</div>
+    </div>
 </div>

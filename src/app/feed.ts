@@ -145,6 +145,15 @@ const RAW_FEED = [
         is_positive: false,
         description: 'продукты'
     },
+        {
+        date: '2018-05-01 10:20',
+        amount: 80012,
+        currency: currencyList.USD,
+        sender: 'PayPal',
+        type: eventTypes.TRANSACTION,
+        is_positive: false,
+        description: 'Подарки'
+    },
 ];
 
 function EventFactory<feedEventType>(event, id: number) {
