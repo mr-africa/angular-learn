@@ -208,6 +208,10 @@ class EventList {
         }
     }
 
+    isSortedByDate(): boolean {
+        return this._sortByDate;
+    }
+
     getEvent(id: number): feedEventType {
         return this.feed.find(event => event.id === id);
     }

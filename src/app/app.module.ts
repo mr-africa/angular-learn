@@ -8,7 +8,6 @@ import { EventListComponent } from './event-list/event-list.component';
 import { EventComponent } from './event/event.component';
 import { NewsEventComponent } from './news-event/news-event.component';
 import { TransactionEventComponent } from './transaction-event/transaction-event.component';
-import { FiltersComponent } from './filters/filters.component';
 import { FilterByDateComponent } from './filter-by-date/filter-by-date.component';
 import { FilterByTypeComponent } from './filter-by-type/filter-by-type.component';
 import { NewsDetailComponent } from './news-detail/news-detail.component';
@@ -22,6 +21,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { KeysPipe } from './keys.pipe';
 import { InnerPageHeaderComponent } from './inner-page-header/inner-page-header.component';
 import { LinkButtonComponent } from './link-button/link-button.component';
+import { MainPageHeaderComponent } from './main-page-header/main-page-header.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,6 @@ import { LinkButtonComponent } from './link-button/link-button.component';
     EventComponent,
     NewsEventComponent,
     TransactionEventComponent,
-    FiltersComponent,
     FilterByDateComponent,
     FilterByTypeComponent,
     NewsDetailComponent,
@@ -43,6 +42,7 @@ import { LinkButtonComponent } from './link-button/link-button.component';
     KeysPipe,
     InnerPageHeaderComponent,
     LinkButtonComponent,
+    MainPageHeaderComponent,
   ],
   imports: [
     BrowserModule,

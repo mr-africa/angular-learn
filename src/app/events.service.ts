@@ -26,6 +26,10 @@ export class EventsService {
         this.eventList.newEventsFirst();
     }
 
+    isSortedByDate(): boolean {
+        return this.eventList.isSortedByDate();
+    }
+
     getFeed(): Observable<feedEventType[]> {
         return of(this.eventList.feed);
     }
