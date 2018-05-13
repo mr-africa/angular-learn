@@ -1,3 +1,7 @@
+.transaction-event {
+    padding: 1em;
+}
+
 .transaction-event:hover > .transaction-event__amount {
     text-decoration: underline;
 }

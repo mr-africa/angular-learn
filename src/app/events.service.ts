@@ -52,4 +52,7 @@ export class EventsService {
     addTransaction(transaction: object): void {
         this.eventList.addEvent(transaction, eventTypes.TRANSACTION);
     }
+    readNews(id: number): void {
+        this.eventList.changeEventProperty(id, 'isViewed', true);
+    }
 }

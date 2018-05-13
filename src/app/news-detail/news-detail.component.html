@@ -4,4 +4,6 @@
 <article class="news-description">
     {{ news.description }}
 </article>
-<button>Отметить как прочтенную</button>
+<button class="circle-button_tag-button circle-button" (click)="readNews()">
+    <div class="circle-button__image">&#10003;</div>
+</button>
