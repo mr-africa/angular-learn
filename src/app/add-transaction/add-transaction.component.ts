@@ -31,10 +31,6 @@ export class AddTransactionComponent implements OnInit {
                 Validators.required,
                 // Validators.
             ]),
-            amountDecimal: new FormControl(null, [
-                Validators.required,
-                // Validators.
-            ]),
             currency: new FormControl(null, [
                 Validators.required,
             ]),

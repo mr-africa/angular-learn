@@ -49,7 +49,8 @@ export class EventsService {
         this.eventList.addEvent(news, eventTypes.NEWS);
     }
 
-    addTransaction(transaction: object): void {
+    addTransaction(transaction: any): void {
+        transaction.amount = transaction.amount * 100;
         this.eventList.addEvent(transaction, eventTypes.TRANSACTION);
     }
     readNews(id: number): void {

@@ -7,15 +7,13 @@
             <label for="amount"  class="form__label">Сумма</label>
             <div>
                 {{ symbol }}
-                <input id="amount"formControlName="amount" required >
-                &nbsp;.&nbsp;
-                <input id="amountDecimal"formControlName="amount" required >
+                <input id="amount"formControlName="amount" required type="number" min="0" pattern="[0-9]+([\.,][0-9]+)?">
             </div>
         </div>
 
         <div class="form__item">
-            <label for="currency"  class="form__label">Валюта</label>
             <select id="currency" formControlName="currency" required >
+                <option [value]="null">Валюта</option>
                 <option *ngFor="let item of curencyList | keys" [value]="item.key">{{ item.value }}</option>
             </select>
         </div>
@@ -29,7 +27,7 @@
             <label for="news-description"  class="form__label">Описание</label>
             <textarea id="news-description" rows="8" cols="40" formControlName="description"></textarea>
         </div>
-        <button *ngIf="AddTransactionForm.valid" class="circle-button_tag-button circle-button" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">
+        <button class="circle-button_tag-button circle-button" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">
             <div class="circle-button__image">+</div>
         </button>
     </div>
