@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventList, feed } from './feed';
 import { feedEventType, eventTypes } from './consts';
-import { Observable, of } from 'rxjs';
-
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +28,8 @@ export class EventsService {
         return this.eventList.isSortedByDate();
     }
 
-    getFeed(): Observable<feedEventType[]> {
-        return of(this.eventList.feed);
+    getFeed(): feedEventType[] {
+        return this.eventList.feed;
     }
 
     changeVisible(eventType: string, value: boolean): void {
@@ -47,8 +45,8 @@ export class EventsService {
         this.changeVisible(eventTypes.TRANSACTION, this.transaction_show)
     }
 
-    getEvent(id: number): Observable<feedEventType> {
-        return of(this.eventList.getEvent(id));
+    getEvent(id: number): feedEventType {
+        return this.eventList.getEvent(id);
     }
 
     delete(id: number): void {

@@ -13,7 +13,7 @@ export class EventListComponent implements OnInit {
     constructor(private eventService: EventsService) { }
 
     getFeed(): void {
-        this.eventService.getFeed().subscribe(feed => this.feed = feed);
+        this.feed = this.eventService.getFeed();
     }
 
     ngOnInit() {

@@ -25,13 +25,12 @@ export class EventDetailComponent implements OnInit {
 
     getEvent(): void {
         const id = +this.route.snapshot.paramMap.get('id');
-        this.eventService.getEvent(id).subscribe((event) => {
-            if (event) {
-                this.event = event;
-            } else {
-                this.router.navigate(['']);
-            }
-        });
+        const event = this.eventService.getEvent(id);
+        if (event) {
+            this.event = event;
+        } else {
+            this.router.navigate(['']);
+        }
     }
 
 }
