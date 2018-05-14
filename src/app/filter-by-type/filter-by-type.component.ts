@@ -4,7 +4,7 @@ import { EventsService } from '../events.service';
 @Component({
   selector: 'app-filter-by-type',
   templateUrl: './filter-by-type.component.html',
-  styleUrls: ['./filter-by-type.component.css']
+  styleUrls: ['./filter-by-type.component.css', '../../styles/filters.css']
 })
 export class FilterByTypeComponent implements OnInit {
 

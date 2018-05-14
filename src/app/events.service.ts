@@ -38,6 +38,15 @@ export class EventsService {
         this.eventList.changeEventVisible(eventType, value);
     }
 
+    changeNewsVisible(): void {
+        this.news_show = !this.news_show;
+        this.changeVisible(eventTypes.NEWS, this.news_show);
+    }
+    changeTransactionsVisible(): void {
+        this.transaction_show = !this.transaction_show;
+        this.changeVisible(eventTypes.TRANSACTION, this.transaction_show)
+    }
+
     getEvent(id: number): Observable<feedEventType> {
         return of(this.eventList.getEvent(id));
     }

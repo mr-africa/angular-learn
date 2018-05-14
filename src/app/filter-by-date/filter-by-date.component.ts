@@ -4,7 +4,7 @@ import { EventsService } from '../events.service';
 @Component({
   selector: 'app-filter-by-date',
   templateUrl: './filter-by-date.component.html',
-  styleUrls: ['./filter-by-date.component.css']
+  styleUrls: ['./filter-by-date.component.css', '../../styles/filters.css']
 })
 export class FilterByDateComponent implements OnInit {
 
