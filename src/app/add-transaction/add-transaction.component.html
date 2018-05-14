@@ -5,8 +5,8 @@
     <div [hidden]="formDir.submitted">
         <div class="form__item">
             <label for="amount"  class="form__label">Сумма</label>
-            <div>
-                {{ symbol }}
+            <div class="amount">
+                <div class="amount__symbol">{{ symbol }}</div>
                 <input id="amount"formControlName="amount" required type="number" min="0" pattern="[0-9]+([\.,][0-9]+)?">
             </div>
         </div>

@@ -16,7 +16,7 @@ export class AddTransactionComponent implements OnInit {
     curencyList = currencyList;
     is_positive:boolean;
     title:string;
-    symbol:string;
+    symbol:string = '+';
 
     constructor(
         private route: ActivatedRoute,
