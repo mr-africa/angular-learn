@@ -37,12 +37,17 @@ export class EventsService {
     }
 
     changeNewsVisible(): void {
-        this.news_show = !this.news_show;
-        this.changeVisible(eventTypes.NEWS, this.news_show);
+        if (this.transaction_show || !this.transaction_show && !this.news_show) { // нельзя скрывать все события
+            this.news_show = !this.news_show;
+            this.changeVisible(eventTypes.NEWS, this.news_show);
+        }
     }
+
     changeTransactionsVisible(): void {
-        this.transaction_show = !this.transaction_show;
-        this.changeVisible(eventTypes.TRANSACTION, this.transaction_show)
+        if (this.news_show || !this.news_show && !this.transaction_show) { // нельзя скрывать все события
+            this.transaction_show = !this.transaction_show;
+            this.changeVisible(eventTypes.TRANSACTION, this.transaction_show)
+        }
     }
 
     getEvent(id: number): feedEventType {
