@@ -1,0 +1,25 @@
+.news {
+    padding: 1em;
+}
+
+
+.news:hover > .news__title {
+    text-decoration: underline;
+}
+
+.news__title {
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.news__title_isViewed {
+    color: #e3dede;
+}
+.news__date {
+    color: #a3a1a1;
+}
+
+.news-info {
+    display: flex;
+    justify-content: space-between;
+}

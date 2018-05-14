@@ -1,0 +1,13 @@
+.event {
+    display: block;
+    border-bottom: 1px dotted #ccc;
+}
+
+.event__news {
+    margin: 0.5em 0;
+}
+
+.event__link {
+    color: #090707;
+    text-decoration: none;
+}

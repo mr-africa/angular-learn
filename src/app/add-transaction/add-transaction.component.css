@@ -1,0 +1,10 @@
+.amount {
+    display: flex;
+}
+
+.amount__symbol {
+    font-weight: 700;
+    font-size: 2em;
+    margin: 0 1em;
+}
+

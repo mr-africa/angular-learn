@@ -1,0 +1,21 @@
+.transaction-event {
+    padding: 1em;
+}
+
+.transaction-event:hover > .transaction-event__amount {
+    text-decoration: underline;
+}
+
+.transaction-event__amount {
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.transaction-event-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-event-info__date {
+    color: #a3a1a1;
+}

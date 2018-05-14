@@ -1,0 +1,20 @@
+<app-inner-page-header header="Добавить новость"></app-inner-page-header>
+
+<form [formGroup]="newsAddForm" #formDir="ngForm" class="form">
+
+    <div [hidden]="formDir.submitted">
+
+        <div class="form__item">
+            <label for="title" class="form__label">Заголовок:</label>
+            <input id="title" formControlName="title" required >
+        </div>
+
+        <div class="form__item">
+            <label for="news-description" class="form__label">Описание:</label>
+            <textarea id="news-description" rows="8" cols="40" required formControlName="description"></textarea>
+        </div>
+        <button class="circle-button_tag-button circle-button" (click)="onSubmit()">
+            <div class="circle-button__image">+</div>
+        </button>
+    </div>
+</form>

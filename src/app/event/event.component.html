@@ -1,0 +1,10 @@
+<div *ngIf="event.visible" class="event">
+    <a class="event__link" routerLink="/event/{{ event.id }}">
+        <div *ngIf="event.isNews()">
+            <app-news-event [news]="event"></app-news-event>
+        </div>
+        <div *ngIf="event.isTransaction()">
+            <app-transaction-event [transaction]="event"></app-transaction-event>
+        </div>
+    </a>
+</div>

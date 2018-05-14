@@ -1,0 +1,9 @@
+<h1>{{ news.title }}</h1>
+
+<div class="news-date">{{ news.dateOutput() }}</div>
+<article class="news-description">
+    {{ news.description }}
+</article>
+<button *ngIf="!news.isViewed" class="circle-button_tag-button circle-button" (click)="readNews()">
+    <div class="circle-button__image">&#10003;</div>
+</button>

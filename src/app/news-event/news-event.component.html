@@ -1,0 +1,7 @@
+<div class="news">
+    <div  [ngClass]="{ 'news__title': true, 'news__title_isViewed': news.isViewed }">{{ news.title }}</div>
+    <div class="news-info">
+        <div class="news__date">{{ news.dateOutput() }}</div>
+        <div *ngIf="news.isViewed" class="news__date">{{ news.dateOutput() }}</div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+.form {
+    margin: 0 1em;
+}
+
+.form__item {
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label {
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+    width: 100%;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input,
+textarea,
+select {
+    display: inline-block;
+    padding: 0.5em;
+    border-radius: 1em;
+    box-shadow: 0 0 0.1em 0.1em inset hsl(55, 96%, 60%);
+}
+
+input:focus,
+input:active,
+textarea:focus,
+textarea:active,
+select:focus,
+select:active {
+    outline: none;
+    outline-offset: none;
+    box-shadow: 0 0 0.5em 0.2em inset hsl(55, 96%, 60%);
+}
+
+select {
+    background-color: hsl(55, 96%, 60%);
+}

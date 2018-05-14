@@ -1,0 +1,34 @@
+<app-inner-page-header [header]="title"></app-inner-page-header>
+
+<form [formGroup]="AddTransactionForm" #formDir="ngForm" class="form">
+
+    <div [hidden]="formDir.submitted">
+        <div class="form__item">
+            <label for="amount"  class="form__label">Сумма</label>
+            <div class="amount">
+                <div class="amount__symbol">{{ symbol }}</div>
+                <input id="amount"formControlName="amount" required type="number" min="0" pattern="[0-9]+([\.,][0-9]+)?">
+            </div>
+        </div>
+
+        <div class="form__item">
+            <select id="currency" formControlName="currency" required >
+                <option [value]="null">Валюта</option>
+                <option *ngFor="let item of curencyList | keys" [value]="item.key">{{ item.value }}</option>
+            </select>
+        </div>
+
+        <div class="form__item">
+            <label for="sender"  class="form__label">Отправитель</label>
+            <input id="sender" formControlName="sender">
+        </div>
+
+        <div class="form__item">
+            <label for="news-description"  class="form__label">Описание</label>
+            <textarea id="news-description" rows="8" cols="40" formControlName="description"></textarea>
+        </div>
+        <button class="circle-button_tag-button circle-button" [disabled]="AddTransactionForm.invalid" (click)="onSubmit()">
+            <div class="circle-button__image">+</div>
+        </button>
+    </div>
+</form>

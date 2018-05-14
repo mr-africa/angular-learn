@@ -1,0 +1,19 @@
+.header_main-page {
+    height: auto;
+    position: initial;
+    padding-top: 1em;
+}
+
+.main-page-header__item {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+}
+
+@media screen and (max-width: 360px) {
+    .main-page-header__item {
+        align-items: center;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}

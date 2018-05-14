@@ -1,0 +1,12 @@
+.header {
+    height: 3em;
+    position: fixed;
+    background-color: hsl(358, 77%, 56%);
+    width: 100%;
+    box-shadow: 0 2px 5px 0 #ccc;
+    z-index: 10;
+}
+
+.fake-header {
+    height: 4em;
+}

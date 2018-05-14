@@ -1,0 +1,2 @@
+<div [ngClass]="{'sort-option': true, 'sort-option_active': !eventService.isSortedByDate()}" (click)="eventService.oldEventsFirst()">Сначала старые</div>
+<div [ngClass]="{'sort-option': true, 'sort-option_active': eventService.isSortedByDate()}" (click)="eventService.newEventsFirst()">Сначала новые</div>

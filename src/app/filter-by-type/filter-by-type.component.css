@@ -1,0 +1,18 @@
+.filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1em;
+    font-weight: 700;
+    user-select: none;
+}
+
+.filter__select {}
+
+.filter-label {
+    text-align: center;
+    font-size: 1em;
+    font-weight: 700;
+    user-select: none;
+    line-height: 1.5em;
+}

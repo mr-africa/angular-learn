@@ -1,0 +1,9 @@
+<h1 [ngClass]="{'transaction-amount_positive': transaction.is_positive, 'transaction-amount_negative': !transaction.is_positive}">{{ transaction.positiveSymbol() }} {{ transaction.amount }}</h1>
+<div class="transaction-date">{{ transaction.dateOutput() }}</div>
+<div class="transaction-info">
+    <div><span class="transaction-info__label">{{ transaction.senderLabel() }}: </span>{{ transaction.sender }}</div>
+    <div>{{ transaction.description }}</div>
+</div>
+<button class="circle-button_tag-button circle-button" (click)="delete()">
+    <div class="circle-button__image">-</div>
+</button>
